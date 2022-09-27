@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+
+
+    <!-- Bootstrap core CSS-->
+    <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--Font awesome-->
+    <script src="https://kit.fontawesome.com/7c1ce87540.js" crossorigin="anonymous"></script>
+
+    <!--Internal CSS File for dashboard-->
+    <link rel="stylesheet" href="./css/dashboard_v3.css">
+
+</head>
+
+<body id="body-pd">
+
+    <nav class="navbar main-navbar d-flex justify-content-between navbar-expand navbar-dark static-top">
+        <a class="navbar-brand ml-2" href="#">LOGO</a>
+
+        <!-- Navbar Search -->
+
+
+        <!-- Navbar -->
+        <ul class="navbar-nav ml-auto ml-md-0">
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <span class="greetings d-flex align-items-center"><span class="mr-2">username</span> <i
+                            class="fa fa-user-circle-o fa-2x"></i><span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" style="background-color: #e8eef2"
+                    aria-labelledby="userDropdown">
+                    <div class="nav-menu-item-co"><strong>%%Company_Name%%</strong></div>
+                    <div class="dropdown-divider"></div>
+                    <a class="nav-menu-item" href="#"><i class="fa fa-gear fa-fw"></i>Settings</a>
+                    <a class="nav-menu-item" href="#"><i class="fa fa-power-off fa-fw"></i>Logout</a>
+                </div>
+            </li>
+
+        </ul>
+    </nav>
+
+
+
+    <div id="wrapper">
+        <!-- Begin Main Content Area -->
+        <div id="content-wrapper">
+            <div class="container-fluid  justify-content-between">
+                <div class="walls mx-4 p-2 align-items-center my-2 d-flex">
+                    <h5 class="text-center mr-2">My Collections</h5>
+                    <div class="wall-tags d-flex justify-content-center">
+                        <div class="wall-tag">
+                            Health Care
+                        </div>
+                        <div class="wall-tag">
+                            Retail
+                        </div>
+                        <div class="wall-tag">
+                            IT
+                        </div>
+                        <div class="wall-tag">
+                            Case Studies
+                        </div>
+                        <div class="wall-tag">
+                            CMO
+                        </div>
+
+                    </div>
+                </div>
+                <hr>
+                <div class="main-content py-3 px-4">
+
+                    <div class="collection-header p-2 d-flex justify-content-between align-items-center">
+                        <div class="collection-title font-weight-bold d-flex align-items-center"
+                            style="font-size:30px;">
+                            Collection Name <span class="collection-count ml-2">(4)</span>
+                        </div>
+                        <div class="collection-options">
+                            <button class="btn btn-sm btn-success font-weight-bold mr-2"> Save</button>
+                            <button class="btn btn-sm btn-danger font-weight-bold  text-center">Clear</button>
+                        </div>
+                    </div>
+                    <div class="collection-body ">
+
+                        <!--Twitter Card-->
+                        <div class="collection-card twitter p-3 ">
+                            <div class="card-title d-flex align-items-center">
+                                <div class="icon mr-2"><i class="fa fa-twitter"></i></div>
+                                <div class="title">Engagement Request</div>
+                            </div>
+                            <div class="card-description">
+                                <div class="description-label text-muted mb-1">
+                                    Post from Inspired Concepts, Inc.
+                                </div>
+                                <div class="description">
+                                    It is a long established fact that a reader will be distracted by the readable
+                                    content of a page when looking at its layout. The point of using Lorem Ipsum is that
+                                    it has a more-or-less normal distribution of letters, as opposed to using 'Content
+                                    here, content here
+                                </div>
+                            </div>
+                            <div class="card-buttons d-flex justify-content-end ">
+                                <button class="card-btn mr-2">More</button>
+                            </div>
+                            <button class="settings-btn"><i class="fas fa-ellipsis-h"></i></button>
+
+                        </div>
+                        <!--Twitter Card End-->
+
+
+                        <!--Linkedln Card-->
+                        <div class="collection-card linkedIn p-3">
+                            <div class="card-title  d-flex align-items-center">
+                                <div class="icon mr-2"><i class="fa fa-linkedin"></i></div>
+                                <div class="title">Engagement Request</div>
+                            </div>
+                            <div class="card-description">
+
+                                <div class="description-label text-muted mb-1">
+                                    Post from Inspired Concepts, Inc.
+                                </div>
+                                <div class="description">
+                                    It is a long established fact that a reader will be distracted by the readable
+                                    content of a page when looking at its layout. The point of using Lorem Ipsum is that
+                                    it has a more-or-less normal distribution of letters, as opposed to using 'Content
+                                    here, content here
+                                </div>
+                            </div>
+                            <div class="card-buttons d-flex justify-content-end ">
+                                <button class="card-btn mr-2">More</button>
+                            </div>
+                            <button class="settings-btn"><i class="fas fa-ellipsis-h"></i></button>
+
+                        </div>
+                        <!--Linkedln Card End-->
+
+
+                        <!--Blog Post Card-->
+                        <div class="collection-card blog p-3">
+                            <div class="card-title  d-flex align-items-center">
+                                <div class="icon mr-2"><i class="fas fa-blog"></i></div>
+                                <div class="title">Machine Learning</div>
+                            </div>
+                            <div class="card-description">
+                                <div class="description-label my-2">
+                                    <div class="tag terms">#blog</div>
+                                    <div class="tag terms">#saas</div>
+
+                                </div>
+                                <div class="description">
+                                    It is a long established fact that a reader will be distracted by the readable
+                                    content of a page when looking at its layout. The point of using Lorem Ipsum is that
+                                    it has a more-or-less normal distribution of letters, as opposed to using 'Content
+                                    here, content here
+                                </div>
+                            </div>
+                            <div class="card-buttons d-flex justify-content-end ">
+                                <button class="card-btn mr-2">More</button>
+                            </div>
+                            <button class="settings-btn"><i class="fas fa-ellipsis-h"></i></button>
+
+                        </div>
+                        <!--Blog Card End-->
+
+                        <!--Blog Post Card-->
+                        <div class="collection-card case p-3 ">
+                            <div class="card-title d-flex align-items-center">
+                                <div class="icon mr-2"><i class="fas fa-university"></i></div>
+
+                                <div class="title">Ralph Lauren</div>
+                            </div>
+                            <div class="card-description">
+                                <div class="description-label my-2">
+                                    <div class="tag industries">#retail</div>
+                                    <div class="tag content">#case-study</div>
+
+                                </div>
+                                <div class="description">
+                                    It is a long established fact that a reader will be distracted by the readable
+                                    content of a page when looking at its layout. The point of using Lorem Ipsum is that
+                                    it has a more-or-less normal distribution of letters, as opposed to using 'Content
+                                    here, content here
+                                </div>
+                            </div>
+                            <div class="card-buttons d-flex justify-content-end ">
+                                <button class="card-btn mr-2">More</button>
+                            </div>
+                            <button class="settings-btn"><i class="fas fa-ellipsis-h"></i></button>
+
+                        </div>
+                        <!--Twitter Card End-->
+
+
+                    </div>
+                </div>
+            </div>
+            <!-- End Page Content -->
+        </div>
+
+        <ul class="sidebar d-flex flex-column navbar-nav pt-5">
+            <div class="py-1 px-4">
+                <form class="mt-1 mb-4 d-flex">
+                    <input type="search" class="form-control" placeholder="Search">
+                    <button class="btn">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </button>
+                </form>
+                <div class="tags-container mt-4">
+                    <div class="tag-block terms">
+                        <div class="tag-header">
+                            <h4>Terms</h4>
+                            <div class="tags-list  justify-content-start w-100">
+                                <div class="tag  ">
+                                    Machine Learning
+                                </div>
+                                <div class="tag ">
+                                    PaaS
+                                </div>
+                                <div class="tag ">
+                                    Containerization
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tag-block competitors ">
+                        <div class="tag-header">
+                            <h4>Competitors</h4>
+                            <div class="tags-list d-flex  justify-content-start w-100">
+                                <div class="tag ">
+                                    Adobe
+                                </div>
+                                <div class="tag ">
+                                    Agilone
+                                </div>
+                                <div class="tag ">
+                                    SFMC
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tag-block industries">
+                        <div class="tag-header">
+                            <h4>Industries</h4>
+                            <div class="tags-list d-flex justify-content-start w-100">
+                                <div class="tag ">
+                                    Retail
+                                </div>
+                                <div class="tag ">
+                                    Travel
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tag-block content">
+                        <div class="tag-header">
+                            <h4>Content</h4>
+                            <div class="tags-list d-flex  justify-content-start w-100">
+                                <div class="tag ">
+                                    Analyst
+                                </div>
+                                <div class="tag ">
+                                    Case Studies
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </ul>
+        <!-- End Container fluid  -->
+        <!-- /#wrapper -->
+    </div>
+
+
+
+    <!-- Bootstrap core JavaScript-->
+
+    <script src="./vendor/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+
+
+</body>
+
+</html>

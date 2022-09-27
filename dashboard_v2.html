@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+
+
+    <!-- Bootstrap core CSS-->
+    <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--Font awesome-->
+    <script src="https://kit.fontawesome.com/7c1ce87540.js" crossorigin="anonymous"></script>
+
+    <!--Internal CSS File for dashboard-->
+    <link rel="stylesheet" href="./css/dashboard.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand navbar-dark static-top">
+        <a class="navbar-brand ml-2" href="./dashboard.html"><img src="images/ps_logo_200.png"></a>
+
+        <!-- Navbar Search -->
+        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+        </form>
+
+        <!-- Navbar -->
+        <ul class="navbar-nav ml-auto ml-md-0">
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <span class="greetings d-flex align-items-center"><span class="mr-2">username</span> <i
+                            class="fa fa-user-circle-o fa-2x"></i><span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" style="background-color: #e8eef2"
+                    aria-labelledby="userDropdown">
+                    <div class="nav-menu-item-co"><strong>%%Company_Name%%</strong></div>
+                    <div class="dropdown-divider"></div>
+                    <a class="nav-menu-item" href="#"><i class="fa fa-gear fa-fw"></i>Settings</a>
+                    <a class="nav-menu-item" href="#"><i class="fa fa-power-off fa-fw"></i>Logout</a>
+                </div>
+            </li>
+
+        </ul>
+    </nav>
+
+    <div id="wrapper">
+        <!-- Begin Sidebar -->
+        <ul class="sidebar d-flex flex-column align-items-center  navbar-nav pt-5">
+            <li class="nav-item my-4 ">
+                <a class="nav-link active" href="index.html">
+                    <i class="fas fa-search fa-3x"></i>
+
+                </a>
+            </li>
+            <li class="nav-item my-4">
+                <a class="nav-link" href="/">
+                    <i class="fas fa-tags fa-3x"></i>
+                </a>
+            </li>
+            <li class="nav-item my-4">
+                <a class="nav-link" href="/">
+                    <i class="fas fa-border-all fa-3x"></i>
+                </a>
+            </li>
+            <li class="nav-item my-4">
+                <a class="nav-link" href="/">
+                    <i class="fa fa-gear fa-3x"></i>
+                </a>
+            </li>
+
+        </ul>
+
+        <!-- End Sidebar -->
+
+        <!-- Begin Main Content Area -->
+        <div id="content-wrapper">
+            <div class="container-fluid">
+
+                <div class="main-content py-3  px-4">
+                    <div class="collection-header p-2 d-flex justify-content-between align-items-center">
+                        <div class="collection-title font-weight-bold d-flex align-items-center"
+                            style="font-size:30px;">
+                            Collection Name <span class="collection-count ml-2">(4)</span>
+                        </div>
+                        <div class="collection-options">
+                            <a href="#" class="text-success font-weight-bold mr-2">Save</a>
+                            <a href="#" class="text-danger font-weight-bold">Clear</a>
+                        </div>
+                    </div>
+                    <div class="collection-body ">
+
+
+                        <!--Twitter Card-->
+                        <div class="collection-card twitter p-3 ">
+                            <div class="card-title d-flex align-items-center">
+                                <div class="icon mr-2"><i class="fa fa-twitter"></i></div>
+                                <div class="title">Engagement Request</div>
+                            </div>
+                            <div class="card-description">
+                                <div class="description-label">
+                                    Tweet from @pleaseshareapp
+                                </div>
+                                <div class="description">
+                                    It is a long established fact that a reader will be distracted by the readable
+                                    content of a page when looking at its layout. The point of using Lorem Ipsum is that
+                                    it has a more-or-less normal distribution of letters, as opposed to using 'Content
+                                    here, content here
+                                </div>
+                            </div>
+                            <div class="card-buttons d-flex justify-content-end ">
+                                <button class="card-btn mr-2">Like</button>
+                                <button class="card-btn mr-2">Retweet</button>
+                                <button class="card-btn ">Reply</button>
+                            </div>
+
+                            <div class="tags-view">
+                                <button class="tags-view-btn"><i class="fas fa-angle-double-left"></i></button>
+                                <h5 class="tags-title">Tags</h5>
+                                <div class="tags">
+                                    <button class="tags-btn">#tag1</button>
+                                    <button class="tags-btn">#tag2</button>
+                                    <button class="tags-btn">#tag3</button>
+                                    <button class="tags-btn">#tag4</button>
+                                    <button class="tags-btn">#tag5</button>
+                                </div>
+                                <i class="fa fa-twitter"></i>
+                            </div>
+                        </div>
+                        <!--Twitter Card End-->
+
+                        <script>
+                            const tagViewBtn = document.querySelector(".tags-view-btn");
+                            const tagsView = document.querySelector(".tags-view");
+                            tagViewBtn.addEventListener("click", () => {
+                                if (tagsView.classList.contains("open")) {
+                                    tagsView.classList.remove("open")
+                                    tagViewBtn.innerHTML = '<i class="fas fa-angle-double-left"></i>'
+                                    tagViewBtn.classList.remove("clicked")
+                                } else {
+                                    tagsView.classList.add("open")
+                                    tagViewBtn.innerHTML = '<i class="fas fa-angle-double-right"></i>';
+
+                                    tagViewBtn.classList.add("clicked")
+                                }
+                            })
+                        </script>
+
+
+                        <!--Linkedln Card-->
+                        <div class="collection-card linkedIn p-3">
+                            <div class="card-title  d-flex align-items-center">
+                                <div class="icon mr-2"><i class="fa fa-linkedin"></i></div>
+                                <div class="title">Engagement Request</div>
+                            </div>
+                            <div class="card-description">
+                                <div class="description-label">
+                                    Post from Inspired Concepts, Inc.
+                                </div>
+                                <div class="description">
+                                    It is a long established fact that a reader will be distracted by the readable
+                                    content of a page when looking at its layout. The point of using Lorem Ipsum is that
+                                    it has a more-or-less normal distribution of letters, as opposed to using 'Content
+                                    here, content here
+                                </div>
+                            </div>
+                            <div class="card-buttons d-flex justify-content-end ">
+                                <button class="card-btn mr-2">Like</button>
+                                <button class="card-btn mr-2">Retweet</button>
+                                <button class="card-btn ">Reply</button>
+                            </div>
+                        </div>
+                        <!--Linkedln Card End-->
+
+
+                        <!--Twitter Card-->
+                        <div class="collection-card twitter p-3 ">
+                            <div class="card-title d-flex align-items-center">
+                                <div class="icon mr-2"><i class="fa fa-twitter"></i></div>
+                                <div class="title">Engagement Request</div>
+                            </div>
+                            <div class="card-description">
+                                <div class="description-label">
+                                    Tweet from @pleaseshareapp
+                                </div>
+                                <div class="description">
+                                    It is a long established fact that a reader will be distracted by the readable
+                                    content of a page when looking at its layout. The point of using Lorem Ipsum is that
+                                    it has a more-or-less normal distribution of letters, as opposed to using 'Content
+                                    here, content here
+                                </div>
+                            </div>
+                            <div class="card-buttons d-flex justify-content-end ">
+                                <button class="card-btn mr-2">Like</button>
+                                <button class="card-btn mr-2">Retweet</button>
+                                <button class="card-btn ">Reply</button>
+                            </div>
+                        </div>
+                        <!--Twitter Card End-->
+
+                        <!--Twitter Card-->
+                        <div class="collection-card twitter p-3 ">
+                            <div class="card-title d-flex align-items-center">
+                                <div class="icon mr-2"><i class="fa fa-twitter"></i></div>
+                                <div class="title">Share Request</div>
+                            </div>
+                            <div class="card-description">
+                                <div class="description-label">
+                                    Approved Tweet Copy
+                                </div>
+                                <div class="description">
+                                    It is a long established fact that a reader will be distracted by the readable
+                                    content of a page when looking at its layout. The point of using Lorem Ipsum is that
+                                    it has a more-or-less normal distribution of letters, as opposed to using 'Content
+                                    here, content here
+                                </div>
+                            </div>
+                            <div class="card-buttons d-flex justify-content-end ">
+                                <button class="card-btn mr-2">Tweet</button>
+                            </div>
+                        </div>
+                        <!--Twitter Card End-->
+
+
+                        <!--Linkedln Card-->
+                        <div class="collection-card linkedIn p-3">
+                            <div class="card-title  d-flex align-items-center">
+                                <div class="icon mr-2"><i class="fa fa-linkedin"></i></div>
+                                <div class="title">Share Request</div>
+                            </div>
+                            <div class="card-description">
+                                <div class="description-label">
+                                    Approved Linked Post Copy
+                                </div>
+                                <div class="description">
+                                    It is a long established fact that a reader will be distracted by the readable
+                                    content of a page when looking at its layout. The point of using Lorem Ipsum is that
+                                    it has a more-or-less normal distribution of letters, as opposed to using 'Content
+                                    here, content here
+                                </div>
+                            </div>
+                            <div class="card-buttons d-flex justify-content-end ">
+                                <button class="card-btn mr-2">Post</button>
+                            </div>
+                        </div>
+                        <!--Linkedln Card End-->
+
+
+                        <!--Twitter Card-->
+                        <div class="collection-card twitter p-3 ">
+                            <div class="card-title d-flex align-items-center">
+                                <div class="icon mr-2"><i class="fa fa-twitter"></i></div>
+                                <div class="title">Share Request</div>
+                            </div>
+                            <div class="card-description">
+                                <div class="description-label">
+                                    Approved Tweet Copy
+                                </div>
+                                <div class="description">
+                                    It is a long established fact that a reader will be distracted by the readable
+                                    content of a page when looking at its layout. The point of using Lorem Ipsum is that
+                                    it has a more-or-less normal distribution of letters, as opposed to using 'Content
+                                    here, content here
+                                </div>
+                            </div>
+                            <div class="card-buttons d-flex justify-content-end ">
+                                <button class="card-btn mr-2">Tweet</button>
+                            </div>
+                        </div>
+                        <!--Twitter Card End-->
+
+                        <!--Definition Card-->
+                        <div class="collection-card twitter p-3 ">
+                            <div class="card-title d-flex align-items-center">
+                                <div class="title">What is Machine Learning?</div>
+                            </div>
+                            <div class="card-description">
+                                <div class="description-label">
+                                    Terms, AI, AML
+                                </div>
+                                <div class="description">
+                                    Machine learning is a subfield of artificial intelligence, which is broadly defined
+                                    as the capability of a machine to imitate intelligent human behavior. Artificial
+                                    intelligence systems are used to perform complex tasks in a way that is similar to
+                                    how humans solve problems
+                                </div>
+                            </div>
+                            <div class="card-buttons d-flex justify-content-end ">
+                                <button class="card-btn mr-2">More</button>
+                            </div>
+                        </div>
+                        <!--Twitter Card End-->
+
+                        <!--Product Update Card-->
+                        <div class="collection-card twitter p-3 ">
+                            <div class="card-title d-flex align-items-center">
+                                <div class="title">Redpoint Interaction 6.5</div>
+                            </div>
+                            <div class="card-description">
+                                <div class="description-label">
+                                    Product Update, 2022, RPI, Etc.
+                                </div>
+                                <div class="description">
+                                    We're excited to share the latest enhancements to the rgOne(tm) platform,
+                                    specifically Redpoint Interaction(tm). Available on Wednesday, April 6, 2022,
+                                    version 6.5 encompasses several new features, updated channel capabilities, and a
+                                    few UI and operational improvements.
+                                </div>
+                            </div>
+                            <div class="card-buttons d-flex justify-content-end ">
+                                <button class="card-btn mr-2">More</button>
+                                <button class="card-btn mr-2">Comment</button>
+                            </div>
+                        </div>
+                        <!--Twitter Card End-->
+
+                        <!--Content Update Card-->
+                        <div class="collection-card twitter p-3 ">
+                            <div class="card-title d-flex align-items-center">
+                                <div class="title">Case Study: Ralph Lauren</div>
+                            </div>
+                            <div class="card-description">
+                                <div class="description-label">
+                                    Case Study, Retail
+                                </div>
+                                <div class="description">
+                                    It is a long established fact that a reader will be distracted by the readable
+                                    content of a page when looking at its layout. The point of using Lorem Ipsum is that
+                                    it has a more-or-less normal distribution of letters, as opposed to using 'Content
+                                    here, content here
+                                </div>
+                            </div>
+                            <div class="card-buttons d-flex justify-content-end ">
+                                <button class="card-btn mr-2">Read</button>
+                                <button class="card-btn mr-2">Download</button>
+                                <button class="card-btn mr-2">Email</button>
+                            </div>
+                        </div>
+                        <!--Twitter Card End-->
+
+                        <!--Blog Post Card-->
+                        <div class="collection-card twitter p-3 ">
+                            <div class="card-title d-flex align-items-center">
+                                <div class="title">Blog: Key Takeaways from Super Bowl Ads</div>
+                            </div>
+                            <div class="card-description">
+                                <div class="description-label">
+                                    Blog, SaaS, Etc.
+                                </div>
+                                <div class="description">
+                                    It is a long established fact that a reader will be distracted by the readable
+                                    content of a page when looking at its layout. The point of using Lorem Ipsum is that
+                                    it has a more-or-less normal distribution of letters, as opposed to using 'Content
+                                    here, content here
+                                </div>
+                            </div>
+                            <div class="card-buttons d-flex justify-content-end ">
+                                <button class="card-btn mr-2">Read</button>
+                            </div>
+                        </div>
+                        <!--Twitter Card End-->
+
+                        <!--Blog Post Card-->
+                        <div class="collection-card twitter p-3 ">
+                            <div class="card-title d-flex align-items-center">
+                                <div class="title">Competitor: Adobe</div>
+                            </div>
+                            <div class="card-description">
+                                <div class="description-label">
+                                    Competitors Adobe
+                                </div>
+                                <div class="description">
+                                    It is a long established fact that a reader will be distracted by the readable
+                                    content of a page when looking at its layout. The point of using Lorem Ipsum is that
+                                    it has a more-or-less normal distribution of letters, as opposed to using 'Content
+                                    here, content here
+                                </div>
+                            </div>
+                            <div class="card-buttons d-flex justify-content-end ">
+                                <button class="card-btn mr-2">More</button>
+                            </div>
+                        </div>
+                        <!--Twitter Card End-->
+
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- End Page Content -->
+        </div>
+        <!-- End Container fluid  -->
+
+        <!-- /#wrapper -->
+    </div>
+
+
+
+    <!-- Bootstrap core JavaScript-->
+
+    <script src="./vendor/bootstrap/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

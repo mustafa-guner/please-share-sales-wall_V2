@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+:root{
+    --twitter-color:#6BC4E8;
+    --linkedin-color:#0077B5;
+
+    --sidebar-color: #27354b;
+    --navbar-color: #1D2838;
+
+    --card-description-color:#7D8A92;
+    --card-description-label-color:#B0B0B0;
+    --card-buttons-background-color:#b0b0b0b6;
+    --card-buttons-text-color:#fff;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+  }
+  
+  body {
+    height: 100%;
+    font-family: 'Lato', sans-serif !important; 
+  }
+  
+  #wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  
+  #wrapper #content-wrapper {
+    overflow-x: hidden;
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 20px;
+   
+  }
+
+  #content-wrapper .container-fluid{
+    padding: 0 40px 0 40px !important;
+  }
+
+
+ 
+  
+  @media (min-width: 768px) {
+    body.fixed-nav #content-wrapper {
+      padding-left: 225px;
+    }
+  }
+
+
+   /*Navbar CSS*/
+
+   nav{
+       background-color: var(--navbar-color) !important;
+   }
+  .navbar-nav .nav-item.dropdown .dropdown-toggle::after {
+    width: 1rem;
+    text-align: center;
+    float: right;
+    vertical-align: 0;
+    border: 0;
+    font-weight: 900;
+    content: "\f105";
+    font-family: "Font Awesome 5 Free";
+  }
+  
+  .navbar-nav .nav-item.dropdown.show .dropdown-toggle::after {
+    content: "\f107";
+  }
+  
+  .navbar-nav .nav-item.dropdown.no-arrow .dropdown-toggle::after {
+    display: none;
+  }
+  
+  .navbar-nav .nav-item .nav-link:focus {
+    outline: none;
+  }
+  
+
+  @media (min-width: 768px) {
+    .navbar-nav .form-inline .input-group {
+      width: auto;
+    }
+  }
+  
+
+  /*Sidebar CSS*/
+  .sidebar {
+    width: 90px !important;
+    background-color:var(--sidebar-color);
+    min-height: calc(100vh - 64px);
+  }
+  
+
+  .sidebar .nav-item:last-child {
+    margin-bottom: 1rem;
+  }
+  
+  .sidebar .nav-item .nav-link {
+    text-align: center;
+    padding: 0.75rem 1rem;
+    width: 90px;
+  }
+  
+  .sidebar .nav-item .nav-link  {
+    font-size: 0.65rem;
+    display: block;
+  }
+  
+  .sidebar .nav-item .nav-link {
+    color: #fff;
+  }
+  
+
+  
+  @media (min-width: 768px) {
+    .sidebar {
+      width: 90px !important;
+    }
+    .sidebar .nav-item .nav-link {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 1rem;
+      height: 50px;
+      width: 225px;
+    }
+    .sidebar .nav-item .nav-link  {
+      font-size: 8px;
+      display: inline;
+    }
+  }
+
+
+  /*Main Content CSS*/
+    #wrapper #content-wrapper .container-fluid .main-content{
+    min-height: calc(100vh - 110px);
+    border-radius: 28px;
+    background-color: #FBF9F9;
+
+  }
+
+  #wrapper #content-wrapper .container-fluid .main-content .collection-header{
+    border-bottom:1px solid rgba(0,0,0,0.20);
+  }
+  
+
+  /*Collection Cards CSS*/
+
+  .collection-body{
+      margin: 2rem 0;
+      display: grid;
+      grid-template-columns: repeat(1,1fr);
+      grid-gap: 30px;
+  }
+
+
+  @media (min-width:1100px) {
+    .collection-body{
+        grid-template-columns: repeat(2,1fr);
+    }
+  }
+
+  @media (min-width:1366px) {
+    .collection-body{
+        grid-template-columns: repeat(3,1fr);
+    }
+  }
+
+  .collection-body .collection-card{
+      background-color:#ffff;
+      border-radius: 15px;
+      position: relative;
+      overflow-x: hidden;
+      box-shadow: 1px 2px 20px 2px rgb(0 0 0 / 10%);
+  }
+
+
+
+
+  .collection-body .collection-card .tags-view-btn{
+    background:none;
+    border:none;
+    position:absolute;
+    font-size: 1.6rem;
+    color: var(--twitter-color);
+    cursor: pointer;
+     left:-32px;
+     top: 40%;
+    transition:all .4s ease-in;
+    outline: none;
+    opacity:0;
+    -webkit-animation: action 1.8s infinite  alternate;
+    animation: action 1.8s infinite  alternate;
+  }
+
+  .collection-body .collection-card .tags-view-btn.clicked{
+    left:0;
+    color: #fff;
+  }
+
+  @-webkit-keyframes action {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-8px); }
+}
+
+@keyframes action {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-8px); }
+}
+
+  .collection-body .collection-card .tags-view{
+    background-color:#6bc5e847;
+    position: absolute;
+    left: 0;
+    padding:1rem;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    overflow:hidden;
+    transition:all .4s ease-in;
+    transform:translateX(100%);
+  }
+
+  
+  .collection-body .collection-card .tags-view i.fa-twitter{
+   position:absolute;
+   right: -5px;
+   font-size: 9rem;
+   color:#fff;
+   bottom: -10px;
+  }
+
+  .collection-body .collection-card .tags-view .tags-title{
+   color:#fff;
+  }
+
+  .collection-body .collection-card .tags-view.open{
+    background-color:#6bc5e8b5;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    transform:translateX(0%);
+  }
+
+  .collection-body .collection-card .tags-view .tags{
+    display:flex;
+  }
+
+  .collection-body .collection-card .tags-view .tags .tags-btn{
+    border: none;
+    background:none;
+    background-color:#fff;
+    box-shadow: 1px 2px 20px 2px rgb(0 0 0 / 10%);  
+    border-radius: 10px;
+    padding:2px 8px;
+    font-size: 14px;
+    margin-right: .4rem;
+  }
+
+
+
+
+
+  .collection-body .collection-card:hover .tags-view-btn{
+   opacity:1;
+  }
+
+
+  .collection-body .collection-card .card-title {
+   font-size: 22px;
+}
+
+
+/*Twitter Card css */
+  .collection-body .collection-card.twitter .card-title .icon{
+    color: var(--twitter-color);
+}
+
+/*Linkedin Card css */
+.collection-body .collection-card.linkedIn .card-title .icon{
+    color: var(--linkedin-color);
+}
+
+  .collection-body .collection-card .card-title .title{
+      color: #B0B0B0;
+  }
+
+  /*Twitter Card css */
+  .collection-body .collection-card.twitter{
+    border-left: 20px solid var(--twitter-color) ;
+  }
+  
+    /*Linkedin Card css */
+    .collection-body .collection-card.linkedIn{
+        border-left: 20px solid var(--linkedin-color) ;
+      }
+
+
+  /*Card Description CSS*/
+  .collection-body .card-description{
+      font-size: 14px;
+  }
+  .collection-body .card-description .description-label{
+      font-size: 12px !important;
+      color:var(--card-description-label-color);
+  }
+  .collection-body .card-description .description{
+      color: var(--card-description-color);
+  }
+
+
+  .collection-body .collection-card .card-buttons{
+    margin-top: 1.5rem;
+   
+}
+
+  .collection-body .collection-card .card-buttons button{
+     border-radius: 20px !important; 
+     padding: 3px 20px;
+     font-size: 13px;
+     box-shadow: 1px 2px 20px 2px rgb(0 0 0 / 10%);
+     border: none !important ;
+     background-color: var(--card-buttons-background-color);
+     color: var(--card-buttons-text-color); 
+     cursor: pointer;
+     outline: none;
+  }
+  
+
+  
