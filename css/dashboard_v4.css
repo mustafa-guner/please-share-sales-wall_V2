@@ -216,6 +216,7 @@ nav.main-navbar .navbar-nav .nav-item .dropdown-toggle:hover {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 30px;
+    align-items: flex-start;
 }
 
 
