@@ -110,7 +110,7 @@
                                 <button class="card-btn mr-2">More</button>
                             </div>
                             <button onClick="removeCard(this)" class="remove-card-btn  action-btn"><i
-                                    class="fas fa-times text-danger"></i></button>
+                                    class="fas fa-times remove-button-color"></i></button>
                         </div>
 
 
@@ -449,10 +449,10 @@
                                 <div class="description-label my-2">
                                   ${card.tags.reduce((acc, tag) => acc + `<div class="tag terms">${tag}</div>`, '')}
                                 </div>
-                                <button  onClick="openModalOnClick(this,'${card.id}');" class="card-btn mr-2">More</button>
+                                <button  onClick="openModalOnClick(this,'${card.id}');" class="card-btn more-btn mr-2">More</button>
                             </div>
                             <button onClick="removeCard(this)" class="remove-card-btn  action-btn"><i
-                                    class="fas fa-times text-danger"></i></button>
+                                    class="fas fa-times remove-button-color"></i></button>
                         </div>`;
 
                     collectionBody.insertAdjacentHTML("afterbegin", cardView);

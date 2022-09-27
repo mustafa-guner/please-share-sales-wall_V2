@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 :root {
-    --main-background-color: #ffff;
+    --main-background-color: #f7f7f7;
     --main-purple-color: #2a265f;
     --twitter-color: #6bc4e8;
     --linkedin-color: #0077b5;
@@ -13,7 +13,7 @@
     --content-color: #227093;
     --industries-color: #218c74;
     --competitors-color: #351f9778;
-    --sidebar-color: #f7f7f7;
+    --sidebar-color: #dedede;
     --navbar-color: #1d2838;
     --card-description-color: #7d8a92;
     /*Border Left Colors for the cards*/
@@ -205,7 +205,7 @@ nav.main-navbar .navbar-nav .nav-item .dropdown-toggle:hover {
 #wrapper #content-wrapper .container-fluid .main-content {
     min-height: calc(100vh - 110px);
     border-radius: 28px;
-    background-color: #ffff;
+    background-color: var(--main-background-color);
 }
 
 
@@ -408,14 +408,23 @@ nav.main-navbar .navbar-nav .nav-item .dropdown-toggle:hover {
 }
 
 .collection-body .collection-card .card-buttons button {
-    border-radius: 20px !important;
+    /* border-radius: 20px !important; */
     padding: 3px 20px;
     font-size: 13px;
-    box-shadow: 1px 2px 20px 2px rgb(0 0 0 / 10%);
+    /* box-shadow: 1px 2px 20px 2px rgb(0 0 0 / 10%); */
     border: none !important;
     cursor: pointer;
     align-self: center;
-    outline: none;
-    color: var(--white);
-    background-color: var(--action-button-color) !important;
+    outline: none !important;
+    color: #d1d1d1;
+    background: none !important;
+}
+
+
+/* .collection-body .collection-card .card-buttons button.more-btn {
+        
+} */
+
+.remove-button-color {
+    color: #d1d1d1;
 }
