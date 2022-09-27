@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+
+
+    <!-- Bootstrap core CSS-->
+    <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--Font awesome-->
+    <script src="https://kit.fontawesome.com/7c1ce87540.js" crossorigin="anonymous"></script>
+
+    <!--Internal CSS File for dashboard-->
+    <link rel="stylesheet" href="./css/dashboard_v4.css">
+
+    <link href="https://cdn.quilljs.com/1.2.2/quill.snow.css" rel="stylesheet">
+
+
+
+</head>
+
+<body id="body-pd">
+
+    <nav class="navbar main-navbar d-flex justify-content-between navbar-expand navbar-dark static-top">
+        <a class="navbar-brand ml-2" href="#">LOGO</a>
+
+        <!-- Navbar Search -->
+
+
+        <!-- Navbar -->
+        <ul class="navbar-nav ml-auto ml-md-0">
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="greetings d-flex align-items-center"><span class="mr-2">username</span> <i class="fa fa-user-circle-o fa-2x"></i></span>
+                    <div class="dropdown-menu dropdown-menu-right" style="background-color: #e8eef2" aria-labelledby="userDropdown">
+                        <div class="nav-menu-item-co"><strong>%%Company_Name%%</strong></div>
+                        <div class="dropdown-divider"></div>
+                        <a class="nav-menu-item" href="#"><i class="fa fa-gear fa-fw"></i>Settings</a>
+                        <a class="nav-menu-item" href="#"><i class="fa fa-power-off fa-fw"></i>Logout</a>
+                    </div>
+                </a>
+            </li>
+
+        </ul>
+    </nav>
+
+
+
+    <div id="wrapper">
+        <!-- Begin Main Content Area -->
+        <div id="content-wrapper">
+            <div class="container-fluid  justify-content-between">
+                <div class="collection-header mx-4 p-2 align-items-center my-2 ">
+                    <a href="./dashboard_v4.html" class="btn px-0"><i class="fa fa-angle-left" aria-hidden="true"></i>
+                        Back</a>
+                    <h3 class="collection-title  font-weight-bold  mr-2">Add New Card</h3>
+                </div>
+                <hr>
+                <div class="card-types mx-4 p-2 d-flex align-items-center">
+                    <div class="title mr-4  font-weight-bold">Select Card Type:</div>
+                    <div id="card-types" class="types d-flex ">
+
+                    </div>
+                </div>
+                <div id="main-content" class="main-content py-2 px-4">
+                    <div class="mt-4">
+                        <div class="row my-2">
+                            <div class="col">
+                                <h5 class="text-center font-weight-bold">New <span id="new-card-title"></span> Card
+                                </h5>
+                            </div>
+                            <div class="col">
+                                <h5 class="text-center font-weight-bold">Preview</h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+
+                                <form id="card-creation-form">
+                                    <div class=" mb-3"> <label class="w-100 font-weight-bold ">
+                                            Card Title
+                                        </label>
+                                        <input type="text" placeholder="Add Title..." name="card-title" id="card-title" class="form-control ">
+                                    </div>
+                                    <div class="my-3">
+                                        <label class="w-100 font-weight-bold">
+                                            Card Description
+                                        </label>
+                                        <div id="text-editor">
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <label class="font-weight-bold">Tags</label>
+                                        <textarea class="form-control" placeholder="Add tags here.." name="card-tags" id="card-tags"></textarea>
+                                    </div>
+                                    <div class="form-buttons d-flex w-100 justify-content-end mt-4">
+                                        <button class="btn btn-secondary btn-sm mr-2">Cancel</button>
+                                        <button class="btn btn-warning text-white btn-sm mr-2">Save Draft</button>
+                                        <button class="btn btn-success btn-sm ml-2">Publish</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col ">
+
+                                <div class="collection-card mt-4 blog p-3">
+                                    <div class="card-title my-0 py-0  d-flex align-items-center">
+
+                                        <div class="title my-0 py-0" id="preview-title"><span class="font-weight-bold text-muted">Title..</span>
+                                        </div>
+
+                                    </div>
+                                    <div class="card-description ">
+                                        <div class="description" id="preview-description">
+                                            <span class="font-weight-bold text-muted">Description..</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-buttons d-flex justify-content-between ">
+                                        <div class="description-label my-2">
+
+                                            <span class="font-weight-bold text-muted">Tags..</span>
+                                        </div>
+                                        <button class="card-btn mr-2">More</button>
+                                    </div>
+                                    <button class="remove-card-btn  action-btn"><i
+                                            class="fas fa-times remove-button-color"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+            <!-- End Page Content -->
+        </div>
+
+
+        <!-- End Container fluid  -->
+        <!-- /#wrapper -->
+    </div>
+
+
+
+    <script src="https://cdn.quilljs.com/1.2.2/quill.js"></script>
+
+    <script>
+        const cardTypes = [{
+            id: "term",
+            type: "Term"
+        }, {
+            id: "proofPoint",
+            type: "Proof Point"
+        }, {
+            id: "contentAsset",
+            type: "Content Asset"
+        }, {
+            id: "productUpdate",
+            type: "Product Update"
+        }, {
+            id: "video",
+            type: "Video"
+        }, {
+            id: "bulkUpload",
+            type: "Bulk Upload"
+        }];
+
+
+        //Global State
+        const DEFAULT_CARD_TYPE = cardTypes[0].id;
+        const CARD_TYPES_INPUT_NAME = "cardTypes"
+        let currentCardDetails = {};
+
+
+        const cardTypesDiv = document.querySelector("#card-types");
+        const mainContent = document.querySelector("#main-content")
+
+        //Word Text Editor
+        const textEditor = new Quill("#text-editor", {
+            theme: 'snow'
+        });
+
+        //Create CARD FORM Selectors
+        const createCardForm = document.querySelector("#card-creation-form");
+        const cardTitleInput = document.querySelector("#card-title");
+        const cardTagsInput = document.querySelector("#card-tags");
+        const textEditorHTMLContent = document.querySelector(".ql-editor");
+
+
+        //Preview Card Selectors
+        const previewTitle = document.querySelector("#preview-title");
+        const previewDescription = document.querySelector("#preview-description");
+
+        //Selected Card Selectors
+        const newCardTitle = document.querySelector("#new-card-title");
+
+        function addCardToUI(cardType) {
+            const type = `   
+                    <label class="card-type mr-4 p-3" for="${cardType.id}">${cardType.type}
+                     <input ${cardType.id === DEFAULT_CARD_TYPE ? "checked" : ""} id="${cardType.id}" type="radio" name=${CARD_TYPES_INPUT_NAME} />
+                    </label>
+               `
+            cardTypesDiv.insertAdjacentHTML("afterbegin", type);
+        }
+
+
+
+        function getCardTypesOnLoad() {
+            cardTypes.reverse().map(addCardToUI)
+            getSelectedCardType(CARD_TYPES_INPUT_NAME)
+            selectCardTypeOnClick(CARD_TYPES_INPUT_NAME)
+        }
+
+
+        function submitCreateCardForm(e) {
+            e.preventDefault();
+            console.log(cardTitleInput.value)
+            console.log(textEditorHTMLContent.innerHTML)
+        }
+
+
+
+        function setCurrentCardDetails(details) {
+            currentCardDetails = {
+                ...details
+            }
+            console.log(currentCardDetails);
+        }
+
+        function getSelectedCardType(inputName) {
+            const selectedCardTypeID = document.querySelector(`input[name='${inputName}']:checked`).id;
+            const selectedCardType = cardTypes.find(type => type.id == selectedCardTypeID)
+            setCurrentCardDetails(selectedCardType);
+            updateRequiredUI(currentCardDetails)
+        }
+
+        function updateRequiredUI(state) {
+            newCardTitle.innerText = state.type
+        }
+
+        function selectCardTypeOnClick(inputName) {
+            document.querySelectorAll(`input[name='${inputName}']`).forEach(input => input.addEventListener("click", () => {
+                getSelectedCardType(inputName)
+                updateRequiredUI(currentCardDetails)
+            }))
+        }
+
+        function updatePreviewCard() {
+            console.log(this)
+            if (this.id === "card-title") {
+                previewTitle.innerText = this.value
+                if (cardTitleInput.value === "") {
+                    previewTitle.innerHTML = '<span class="font-weight-bold text-muted">Title..</span>'
+                }
+            }
+        }
+
+
+        function eventListeners() {
+            document.addEventListener("DOMContentLoaded", getCardTypesOnLoad);
+            createCardForm.addEventListener("submit", submitCreateCardForm)
+            cardTitleInput.addEventListener("input", updatePreviewCard);
+            textEditorHTMLContent.addEventListener("input", updatePreviewCard)
+
+        }
+
+        eventListeners()
+    </script>
+
+
+
+
+
+
+
+
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="./vendor/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+
+
+</body>
+
+</html>
