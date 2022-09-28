@@ -79,13 +79,16 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
+                            <div class="col-6">
 
                                 <form id="card-creation-form">
                                     <div class=" mb-3"> <label class="w-100 font-weight-bold ">
                                             Card Title
                                         </label>
-                                        <input type="text" placeholder="Add Title..." name="card-title" id="card-title" class="form-control ">
+                                        <input type="text" placeholder="Add Title..." maxlength="150" name="card-title" id="card-title" class="form-control ">
+                                        <div class="d-flex justify-content-end w-100">
+                                            <div class="text-small text-muted"><span id="chars-left">0</span>/150</div>
+                                        </div>
                                     </div>
                                     <div class="my-3">
                                         <label class="w-100 font-weight-bold">
@@ -105,29 +108,30 @@
                                     </div>
                                 </form>
                             </div>
-                            <div class="col ">
+                            <div class="col-6 ">
 
-                                <div class="collection-card mt-4 blog p-3">
-                                    <div class="card-title my-0 py-0  d-flex align-items-center">
+                                <div class="preview-collection-card h-100 rounded d-flex flex-column justify-content-between bg-white w-100 h-100 mt-4 blog p-4">
+                                    <div>
+                                        <div class="preview-card-title my-0 py-0  d-flex align-items-center">
 
-                                        <div class="title my-0 py-0" id="preview-title"><span class="font-weight-bold text-muted">Title..</span>
+                                            <div class="title my-0 py-0" id="preview-title"><span class="font-weight-bold text-muted">Title..</span>
+                                            </div>
+
                                         </div>
-
-                                    </div>
-                                    <div class="card-description ">
-                                        <div class="description" id="preview-description">
-                                            <span class="font-weight-bold text-muted">Description..</span>
+                                        <div class="card-description  preview-description mt-4">
+                                            <!---add restricted style for preview description-->
+                                            <div class="description" id="preview-description">
+                                                <span class="font-weight-bold text-muted">Description..</span>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="card-buttons d-flex justify-content-between ">
-                                        <div class="description-label my-2">
+                                    <div class="card-buttons mt-auto d-flex justify-content-between ">
+                                        <div class="description-label d-flex my-2" id="preview-tags">
 
-                                            <span class="font-weight-bold text-muted">Tags..</span>
                                         </div>
-                                        <button class="card-btn mr-2">More</button>
+                                        <button class="card-btn mr-2 align-self-center">More</button>
                                     </div>
-                                    <button class="remove-card-btn  action-btn"><i
-                                            class="fas fa-times remove-button-color"></i></button>
+
                                 </div>
                             </div>
                         </div>
@@ -192,12 +196,14 @@
         const createCardForm = document.querySelector("#card-creation-form");
         const cardTitleInput = document.querySelector("#card-title");
         const cardTagsInput = document.querySelector("#card-tags");
+        const charsLeftCounter = document.querySelector("#chars-left")
         const textEditorHTMLContent = document.querySelector(".ql-editor");
-
 
         //Preview Card Selectors
         const previewTitle = document.querySelector("#preview-title");
         const previewDescription = document.querySelector("#preview-description");
+        const previewTags = document.querySelector("#preview-tags");
+
 
         //Selected Card Selectors
         const newCardTitle = document.querySelector("#new-card-title");
@@ -212,7 +218,11 @@
         }
 
 
-
+        /*
+              @Desc:
+                 -gets card types on page load and add them to UI
+                 -add event listener to card types by input name
+              */
         function getCardTypesOnLoad() {
             cardTypes.reverse().map(addCardToUI)
             getSelectedCardType(CARD_TYPES_INPUT_NAME)
@@ -235,6 +245,11 @@
             console.log(currentCardDetails);
         }
 
+        /*
+        @Desc:
+            -It searches and finds the checked radio element and set it to global state
+            -Updates title
+        */
         function getSelectedCardType(inputName) {
             const selectedCardTypeID = document.querySelector(`input[name='${inputName}']:checked`).id;
             const selectedCardType = cardTypes.find(type => type.id == selectedCardTypeID)
@@ -242,10 +257,20 @@
             updateRequiredUI(currentCardDetails)
         }
 
+
+        /*
+        @Desc: It updates the New X Card (New (cardType) Card)
+        */
         function updateRequiredUI(state) {
             newCardTitle.innerText = state.type
         }
 
+
+        /*
+       @Desc:
+           -Activates card type on click and add it to state as selected one
+           -Updates title
+       */
         function selectCardTypeOnClick(inputName) {
             document.querySelectorAll(`input[name='${inputName}']`).forEach(input => input.addEventListener("click", () => {
                 getSelectedCardType(inputName)
@@ -253,13 +278,42 @@
             }))
         }
 
-        function updatePreviewCard() {
-            console.log(this)
-            if (this.id === "card-title") {
-                previewTitle.innerText = this.value
-                if (cardTitleInput.value === "") {
-                    previewTitle.innerHTML = '<span class="font-weight-bold text-muted">Title..</span>'
-                }
+        function removeTag(tag) {
+            return tag.parentElement.remove()
+        }
+
+
+        let len = 0;
+        let max = 150;
+
+        function updatePreviewCardTitle(e) {
+            let charsLeft
+            let code = e.keyCode;
+
+            if (this.value.length == 0) previewTitle.innerHTML += `<span class="font-weight-bold text-muted">Title..</span>`
+            if (code == 8) {
+                charsLeft += 1;
+            }
+            len = this.value.length;
+            charsLeft = max - len;
+            charsLeftCounter.innerText = charsLeft
+            previewTitle.innerText = this.value
+        }
+
+        function updatePreviewCardTags(e) {
+
+            if (this.value !== "" && e.which == 32) {
+                previewTags.innerHTML += `<div class="tag position-relative"><span  contenteditable="true">${this.value}</span> <button onClick="removeTag(this)" class="remove-card-btn  action-btn"><i
+                                    class="fas fa-times remove-button-color"></i></button></div>`
+                this.value = "";
+            }
+
+        }
+
+
+        function handleUpdateOnTextEditor(delta, oldDelta, source) {
+            if (source == 'user') {
+                previewDescription.innerHTML = textEditorHTMLContent.innerHTML
             }
         }
 
@@ -267,9 +321,9 @@
         function eventListeners() {
             document.addEventListener("DOMContentLoaded", getCardTypesOnLoad);
             createCardForm.addEventListener("submit", submitCreateCardForm)
-            cardTitleInput.addEventListener("input", updatePreviewCard);
-            textEditorHTMLContent.addEventListener("input", updatePreviewCard)
-
+            cardTitleInput.addEventListener("input", updatePreviewCardTitle);
+            cardTagsInput.addEventListener("keypress", updatePreviewCardTags)
+            textEditor.on('text-change', handleUpdateOnTextEditor);
         }
 
         eventListeners()

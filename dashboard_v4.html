@@ -445,6 +445,12 @@
                                 </div>
 
                             </div>
+                            ${card.id != "proofPrintModal" ? `    <div class="card-description">
+                                <div class="description">
+                                   ${card.shortDescription}
+                                </div>
+                            </div>` : ""}
+                        
                           
                             <div class="card-buttons d-flex justify-content-between ">
                                 <div class="description-label my-2">

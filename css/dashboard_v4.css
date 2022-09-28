@@ -239,13 +239,14 @@ nav.main-navbar .navbar-nav .nav-item .dropdown-toggle:hover {
     }
 }
 
-.collection-card {
+.collection-body .collection-card {
     background-color: #ffff;
     border-radius: 15px;
     position: relative;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
+    height: 100%;
     justify-content: space-between;
 }
 
@@ -253,19 +254,69 @@ nav.main-navbar .navbar-nav .nav-item .dropdown-toggle:hover {
     border-radius: 15px !important;
 }
 
-.collection-card:hover {
+.preview-collection-card .preview-description #preview-description {
+    height: 300px;
+    overflow-y: auto;
+    width: 100%;
+    padding-top: 2rem;
+    word-break: break-all;
+    overflow-wrap: break-word;
+    border-top: 1px solid rgba(212, 212, 212, 0.827);
+}
+
+.preview-collection-card .preview-card-title {
+    height: 50px !important;
+    width: 100%;
+    word-break: break-all;
+    overflow-wrap: break-word;
+}
+
+.preview-collection-card .description-label {
+    width: 500px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.preview-collection-card .card-buttons .card-btn {
+    color: #d1d1d1;
+    background: none !important;
+    border: none !important;
+    padding: 3px 20px;
+    font-size: 17px;
+    cursor: pointer;
+    outline: none !important;
+}
+
+.preview-collection-card .description-label .tag {
+    color: #fff;
+    font-size: 12px;
+    padding: 2px 7px;
+    background-color: var(--terms-color) !important;
+    border-radius: 7px;
+    margin-right: 0.2rem;
+    margin-top: 0.2rem;
+}
+
+.preview-collection-card .description-label .tag button {
+    background: none !important;
+    margin-left: 0.5rem;
+    border: none !important;
+    cursor: pointer;
+}
+
+.collection-body .collection-card:hover {
     /* transform: scale(1.1); */
 }
 
-.collection-card hr {
+.collection-body .collection-card hr {
     border: 0.5px solid rgba(227, 225, 225, 0.624);
 }
 
-.collection-card .tags-view .tags-title {
+.collection-body .collection-card .tags-view .tags-title {
     color: #fff;
 }
 
-.collection-card .tags-view .tags .tags-btn {
+.collection-body .collection-card .tags-view .tags .tags-btn {
     border: none;
     background: none;
     background-color: #fff;
@@ -276,7 +327,7 @@ nav.main-navbar .navbar-nav .nav-item .dropdown-toggle:hover {
     margin-right: 0.4rem;
 }
 
-.collection-card .card-title {
+.collection-body .collection-card .card-title {
     font-size: 18px;
     min-height: 70px;
     width: 90%;
@@ -286,17 +337,19 @@ nav.main-navbar .navbar-nav .nav-item .dropdown-toggle:hover {
     justify-content: center;
 }
 
-.collection-card .card-title .icon {
+.collection-body .collection-card .card-title .icon {
     color: var(--action-button-color);
 }
 
-.collection-card .card-title .title {
+.collection-body .collection-card .card-title .title {
     color: #313131;
     width: 100%;
 }
 
 .ql-container.ql-snow {
     background-color: #fff !important;
+    height: 200px !important;
+    overflow-y: auto;
 }
 
 .card-types .card-type {
@@ -354,7 +407,7 @@ nav.main-navbar .navbar-nav .nav-item .dropdown-toggle:hover {
 
 /*Card Description CSS*/
 
-.card-description {
+.collection-body .card-description {
     font-size: 14px;
     /* height: 100%; */
     max-height: 110px;
@@ -365,11 +418,11 @@ nav.main-navbar .navbar-nav .nav-item .dropdown-toggle:hover {
     padding: 0.7rem 0;
 }
 
-.card-description.thumbnail {
+.collection-body .card-description.thumbnail {
     min-height: 150px !important;
 }
 
-.card-description .description {
+.collection-body .card-description .description {
     width: 100%;
     display: flex;
     height: 100%;
@@ -378,14 +431,14 @@ nav.main-navbar .navbar-nav .nav-item .dropdown-toggle:hover {
     justify-content: center;
 }
 
-.card-description .description img {
+.collection-body .card-description .description img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     margin: 0 auto;
 }
 
-.collection-card .action-btn {
+.collection-body .collection-card .action-btn {
     position: absolute;
     top: 10px;
     cursor: pointer;
@@ -395,11 +448,11 @@ nav.main-navbar .navbar-nav .nav-item .dropdown-toggle:hover {
     outline: none;
 }
 
-.collection-card .description-label {
+.collection-body .collection-card .description-label {
     display: flex;
 }
 
-.collection-card .description-label .tag {
+.collection-body .collection-card .description-label .tag {
     color: #fff;
     font-size: 12px;
     padding: 2px 7px;
@@ -407,39 +460,39 @@ nav.main-navbar .navbar-nav .nav-item .dropdown-toggle:hover {
     margin-right: 0.2rem;
 }
 
-.collection-card .card-description .description-label {
+.collection-body .collection-card .card-description .description-label {
     color: #b0b0b0;
     font-size: 12px;
 }
 
-.collection-card .description-label .tag.terms {
+.collection-body .collection-card .description-label .tag.terms {
     /* background-color: #00b89368; */
     background-color: var(--terms-color);
 }
 
-.collection-card .description-label .tag.industries {
+.collection-body .collection-card .description-label .tag.industries {
     /* background-color: #00b89368; */
     background-color: var(--industries-color);
 }
 
-.collection-card .description-label .tag.content {
+.collection-body .collection-card .description-label .tag.content {
     /* background-color: #00b89368; */
     background-color: var(--content-color);
 }
 
-.collection-card.twitter .description-label .tag {
+.collection-body .collection-card.twitter .description-label .tag {
     background-color: #6bc5e888;
 }
 
-.collection-card.linkedIn .description-label .tag {
+.collection-body .collection-card.linkedIn .description-label .tag {
     background-color: #0076b591;
 }
 
-.collection-card .card-buttons {
+.collection-body .collection-card .card-buttons {
     margin-top: 1.5rem;
 }
 
-.collection-card .card-buttons button {
+.collection-body .collection-card .card-buttons button {
     /* border-radius: 20px !important; */
     padding: 3px 20px;
     font-size: 13px;
