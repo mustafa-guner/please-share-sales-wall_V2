@@ -61,9 +61,9 @@
                     <h3 class="collection-title  font-weight-bold  mr-2">Add New Card</h3>
                 </div>
                 <hr>
-                <div class="card-types mx-4 p-2 d-flex align-items-center">
-                    <div class="title mr-4  font-weight-bold">Select Card Type:</div>
-                    <div id="card-types" class="types d-flex ">
+                <div class=" mx-4 p-2 card-type-header rounded">
+                    <div class="title mr-4 pl-1 my-2  font-weight-bold">Select Card Type</div>
+                    <div id="card-types" class="types  w-100 my-2 align-items-center ">
 
                     </div>
                 </div>
@@ -71,7 +71,7 @@
                     <div class="mt-4">
                         <div class="row my-2">
                             <div class="col">
-                                <h5 class="text-center font-weight-bold">New <span id="new-card-title"></span> Card
+                                <h5 class="text-center font-weight-bold ">New <span id="new-card-title"></span> Card
                                 </h5>
                             </div>
                             <div class="col">
@@ -159,22 +159,28 @@
     <script>
         const cardTypes = [{
             id: "term",
-            type: "Term"
+            type: "Term",
+            icon: '<i class="fa fa-2x fa-bandcamp" aria-hidden="true"></i>'
         }, {
             id: "proofPoint",
-            type: "Proof Point"
+            type: "Proof Point",
+            icon: '<i class="fa fa-2x fa-bullseye" aria-hidden="true"></i>'
         }, {
             id: "contentAsset",
-            type: "Content Asset"
+            type: "Content Asset",
+            icon: '<i class="fa fa-2x fa-asterisk" aria-hidden="true"></i>'
         }, {
             id: "productUpdate",
-            type: "Product Update"
+            type: "Product Update",
+            icon: '<i class="fa fa-2x fa-wrench" aria-hidden="true"></i>'
         }, {
             id: "video",
-            type: "Video"
+            type: "Video",
+            icon: '<i class="fa fa-2x fa-video-camera" aria-hidden="true"></i>'
         }, {
-            id: "bulkUpload",
-            type: "Bulk Upload"
+            id: "prdocutFeature",
+            type: "Product Feature",
+            icon: '<i class="fa fa-2x fa-wrench" aria-hidden="true"></i>'
         }];
 
 
@@ -210,11 +216,24 @@
 
         function addCardToUI(cardType) {
             const type = `   
-                    <label class="card-type mr-4 p-3" for="${cardType.id}">${cardType.type}
+                    <label class="card-type text-center mt-2" for="${cardType.id}">
+                    <div class='my-2'>${cardType.icon}</div>
+                    ${cardType.type}
                      <input ${cardType.id === DEFAULT_CARD_TYPE ? "checked" : ""} id="${cardType.id}" type="radio" name=${CARD_TYPES_INPUT_NAME} />
                     </label>
                `
             cardTypesDiv.insertAdjacentHTML("afterbegin", type);
+        }
+
+        function addActivatedClassToInputLabelOnClick(inputLabel) {
+            removeAllActivatedClasses()
+            const currentInputLabel = inputLabel.parentElement;
+            currentInputLabel.classList.add("activated")
+        }
+
+
+        function removeAllActivatedClasses() {
+            document.querySelectorAll(`input[name=${CARD_TYPES_INPUT_NAME}]`).forEach(input => input.parentElement.classList.remove("activated"))
         }
 
 
@@ -251,8 +270,9 @@
             -Updates title
         */
         function getSelectedCardType(inputName) {
-            const selectedCardTypeID = document.querySelector(`input[name='${inputName}']:checked`).id;
-            const selectedCardType = cardTypes.find(type => type.id == selectedCardTypeID)
+            const selectedCardTypeInput = document.querySelector(`input[name='${inputName}']:checked`);
+            addActivatedClassToInputLabelOnClick(selectedCardTypeInput)
+            const selectedCardType = cardTypes.find(type => type.id == selectedCardTypeInput.id)
             setCurrentCardDetails(selectedCardType);
             updateRequiredUI(currentCardDetails)
         }
@@ -272,7 +292,8 @@
            -Updates title
        */
         function selectCardTypeOnClick(inputName) {
-            document.querySelectorAll(`input[name='${inputName}']`).forEach(input => input.addEventListener("click", () => {
+            document.querySelectorAll(`input[name='${inputName}']`).forEach(input => input.addEventListener("click", function() {
+                addActivatedClassToInputLabelOnClick(this)
                 getSelectedCardType(inputName)
                 updateRequiredUI(currentCardDetails)
             }))

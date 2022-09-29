@@ -352,25 +352,52 @@ nav.main-navbar .navbar-nav .nav-item .dropdown-toggle:hover {
     overflow-y: auto;
 }
 
-.card-types .card-type {
+.card-type-header {
+    background-color: #ebedee;
+}
+
+.card-type-header .title {
+    color: #ababab;
+}
+
+#card-types {
+    display: grid;
+    grid-template-columns: repeat(6, 150px);
+    grid-gap: 20px;
+    padding: 0.2rem;
+    width: 100%;
+}
+
+#card-types .card-type {
     position: relative;
     border-radius: 5px;
     display: flex;
     align-items: center;
     cursor: pointer;
+    flex-direction: column;
+    height: 100%;
     justify-content: center;
-    background-color: #d9d9d9;
+    font-size: 14px;
+    padding: 1rem 0;
+    color: #bec4c8;
+    transition: all 0.3s ease-in-out;
+    background-color: #f3f4f8;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 
-.card-types label.card-type input {
+#card-types label.card-type input {
     align-self: center !important;
-    margin-top: 0.1em;
     cursor: pointer;
-    margin-left: 0.2rem;
+    visibility: hidden;
+    position: absolute;
 }
 
-.card-types label.card-type input:checked {
-    background-color: #000 !important;
+#card-types label.activated {
+    background-color: #acb4b9 !important;
+    color: #fff;
+    font-weight: bold;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+    animation: fadeIn 0.2s;
 }
 
 
@@ -512,4 +539,13 @@ nav.main-navbar .navbar-nav .nav-item .dropdown-toggle:hover {
 
 .remove-button-color {
     color: #d1d1d1;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        }
+        
+        .cards label {
+            position: relative;
+            padding: .5rem 1rem;
+            border-radius: 7px;
+            background-color: #333;
+            color: #fff;
+        }
+        
+        .cards label input {
+            position: absolute;
+        }
+        
+        .cards label.activated {
+            background-color: gray !important;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="cards">
+        <label for="first">
+            Deneme 1
+            <input id="first" type="radio" name="cardType">
+        </label>
+        <label for="second">
+            Deneme 2
+            <input id="second" type="radio" name="cardType">
+        </label>
+        <label for="third">
+            Deneme 3
+            <input id="third" type="radio" name="cardType">
+        </label>
+        <label for="fourth">
+            Deneme 4
+            <input id="fourth" type="radio" name="cardType">
+        </label>
+        <label for="fifth">
+            Deneme 5
+            <input id="fifth" type="radio" name="cardType">
+        </label>
+    </div>
+    <script>
+        document.querySelectorAll("input[name='cardType']").forEach(input => input.addEventListener("click", function() {
+            removeAllActivatedClasses()
+            const currentInputLabel = this.parentElement;
+            currentInputLabel.classList.add("activated")
+        }));
+
+        function removeAllActivatedClasses() {
+            document.querySelectorAll("input[name='cardType']").forEach(input => input.parentElement.classList.remove("activated"))
+        }
+    </script>
+</body>
+
+</html>
