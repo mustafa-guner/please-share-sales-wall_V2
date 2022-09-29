@@ -438,7 +438,7 @@
                             document.addEventListener("DOMContentLoaded", function() {
                                         cards.map((card) => {
 
-                                                    const cardView = `<div class="collection-card blog p-3">
+                                                    const cardView = `  <div class="collection-card ${card.id === "proofPrintModal" ? "proofPrintCard" : ""} blog p-3">
                             <div class="card-title my-0 py-0  d-flex align-items-center">
                                
                                 <div class="title my-0 py-0">${card.title}

@@ -339,7 +339,7 @@ nav.main-navbar .navbar-nav .nav-item .dropdown-toggle:hover {
 }
 
 .collection-body .collection-card .card-title {
-    font-size: 18px;
+    font-size: 20px;
     min-height: 70px;
     width: 90%;
     display: flex;
@@ -474,6 +474,18 @@ nav.main-navbar .navbar-nav .nav-item .dropdown-toggle:hover {
     height: 100%;
     object-fit: cover;
     margin: 0 auto;
+}
+
+.collection-card.proofPrintCard {
+    background-color: #008d72;
+}
+
+.collection-body .collection-card.proofPrintCard .card-title .title {
+    color: #fff;
+}
+
+.collection-body .collection-card.proofPrintCard .card-title {
+    transform: translateY(90%);
 }
 
 .collection-body .collection-card .action-btn {
