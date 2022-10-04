@@ -278,6 +278,84 @@ nav.main-navbar .navbar-nav .nav-item .dropdown-toggle:hover {
     line-height: 2rem !important;
 }
 
+.index-collection-card .card-description #card-description {
+    height: 100%;
+    overflow-y: auto;
+    width: 100%;
+    padding: 2rem 0;
+    word-break: break-all;
+    overflow-wrap: break-word;
+    line-height: 2.3rem !important;
+    border-top: 1px solid rgba(212, 212, 212, 0.827);
+}
+
+.index-collection-card {
+    font-family: "Gordita Regular" !important;
+    font-weight: normal !important;
+}
+
+.index-collection-card .index-card-title #card-title {
+    width: 100%;
+    height: 50px;
+    word-break: break-all;
+    padding: 2rem 0 1rem 0;
+    overflow-wrap: break-word;
+    font-size: 22px;
+}
+
+.index-collection-card .card-buttons {
+    height: 70px;
+}
+
+.index-collection-card .description-label {
+    width: 500px;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-items: flex-start;
+}
+
+.index-collection-card .card-buttons .card-btn {
+    color: #d1d1d1;
+    background: none !important;
+    border: none !important;
+    padding: 3px 20px;
+    font-size: 17px;
+    cursor: pointer;
+    outline: none !important;
+}
+
+.preview-collection-card .description-label .tag {
+    color: #fff;
+    font-size: 12px;
+    padding: 2px 7px;
+    background-color: var(--terms-color) !important;
+    border-radius: 7px;
+    margin-right: 0.2rem;
+    align-self: center;
+    margin-top: 0.2rem;
+}
+
+.index-collection-card .description-label .tag {
+    color: #fff;
+    font-size: 12px;
+    padding: 2px 7px;
+    background-color: var(--terms-color) !important;
+    border-radius: 7px;
+    margin-right: 0.2rem;
+    line-height: 1.5rem !important;
+    align-self: center;
+    margin-top: 0.2rem;
+}
+
+.index-collection-card .description-label .tag button {
+    background: none !important;
+    margin-left: 0.5rem;
+    border: none !important;
+    cursor: pointer;
+}
+
 .preview-collection-card .preview-description #preview-description {
     height: 150px;
     overflow-y: auto;
@@ -636,8 +714,8 @@ nav.main-navbar .navbar-nav .nav-item .dropdown-toggle:hover {
 
 .comments-section .comments-body .comments .comment .owner-image {
     align-self: flex-start;
-    width: 120px;
-    height: 50px !important;
+    width: 70px;
+    height: 45px !important;
     border-radius: 100%;
     display: flex;
     padding: 0.2rem;
