@@ -280,7 +280,6 @@ nav.main-navbar .navbar-nav .nav-item .dropdown-toggle:hover {
 
 .index-collection-card .card-description #card-description {
     height: 100%;
-    overflow-y: auto;
     width: 100%;
     padding: 2rem 0;
     word-break: break-all;
