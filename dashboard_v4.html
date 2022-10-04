@@ -361,6 +361,8 @@
 
                         function getModalDetails(card) {
 
+
+
                             const modalTitle = document.querySelector("#modalTitle");
                             const updatedAt = document.querySelector("#updatedAt");
                             const modalBody = document.querySelector("#modalBody");
@@ -434,6 +436,16 @@
                                 modalDetailsDiv.appendChild(sources)
                             }
 
+                            if (card.id === "terminologyModal") {
+                                const expandMoreBtn = document.createElement("a");
+                                const buttonClassList = ["btn", "btn-sm", "btn-primary", "my-2"];
+                                buttonClassList.map(cls => expandMoreBtn.classList.add(cls))
+                                expandMoreBtn.innerText = "Expand"
+                                expandMoreBtn.setAttribute("href", "index.html");
+                                expandMoreBtn.setAttribute("target", "_blank")
+                                modalDetailsDiv.appendChild(expandMoreBtn)
+                            }
+
                             modalBody.appendChild(modalDetailsDiv)
 
                         }
@@ -444,7 +456,7 @@
                             thisBtn.setAttribute("data-target", "#cardModal");
                             thisBtn.setAttribute("data-toggle", "modal");
                             getModalDetails(card)
-
+                            window.localStorage.setItem("selectedCard", JSON.stringify(card))
                         }
 
 

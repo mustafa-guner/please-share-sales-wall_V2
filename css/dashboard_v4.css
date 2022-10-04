@@ -268,19 +268,6 @@ nav.main-navbar .navbar-nav .nav-item .dropdown-toggle:hover {
     justify-content: space-between;
 }
 
-.modal.show .modal-dialog {
-    -webkit-transform: translate(-20%, 0) !important;
-    transform: translate(-20%, 0) !important;
-}
-
-.modal.fade .modal-dialog {
-    transition: -webkit-transform 0.3s ease-out;
-    transition: transform 0.3s ease-out;
-    transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
-    -webkit-transform: translate(-20%, -25%);
-    transform: translate(-20%, -25%);
-}
-
 .modal.show .modal-dialog .modal-content {
     border-radius: 15px !important;
     font-family: "Gordita Regular";
