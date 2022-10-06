@@ -93,14 +93,40 @@ nav.main-navbar {
     margin: 5px;
 }
 
+.add-collection-btn {
+    border: 1px dashed #d3d5da !important;
+    border: none;
+    background: none !important;
+    padding: 0.4rem 0.6rem;
+    border-radius: 7px;
+    font-size: 14px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    outline: none !important;
+    cursor: pointer;
+}
+
 .walls .wall-tags .wall-tag {
     border-radius: 10px;
-    padding: 4px 12px;
+    padding: 6px 12px;
     font-size: 10px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
     background-color: #6d9deb;
     margin-right: 0.4rem;
     color: #fff;
     box-shadow: 1px 2px 20px 2px rgb(0 0 0 / 10%);
+}
+
+.walls .wall-tags .wall-tag #remove-wall {
+    background: none !important;
+    border: none !important;
+    display: block;
+    cursor: pointer;
+    outline: none !important;
+    color: #1d2838;
+    margin-left: 0.7rem;
 }
 
 .main-navbar .collection-header {
@@ -288,7 +314,7 @@ nav.main-navbar .navbar-nav .nav-item .dropdown-toggle:hover {
     border-top: 1px solid rgba(212, 212, 212, 0.827);
 }
 
-.index-collection-card {
+.index-collection-card>div {
     font-family: "Gordita Regular" !important;
     font-weight: normal !important;
 }
@@ -711,23 +737,25 @@ nav.main-navbar .navbar-nav .nav-item .dropdown-toggle:hover {
     border-bottom: 1px solid rgba(196, 193, 193, 0.465);
 }
 
+.comments-section .comments-body .comments .comment.reply-comment {
+    display: flex;
+    padding: none !important;
+    align-items: center;
+    width: 100%;
+    margin: 1rem 0;
+    border-bottom: none !important;
+}
+
 .comments-section .comments-body .comments .comment .owner-image {
     align-self: flex-start;
-    width: 70px;
-    height: 45px !important;
     border-radius: 100%;
-    display: flex;
-    padding: 0.2rem;
-    align-items: flex-start;
-    flex-direction: column;
-    justify-content: flex-start;
 }
 
 .comments-section .comments-body .comments .comment .owner-image img {
-    width: 100%;
+    width: 50px;
     align-self: flex-start;
-    height: 100%;
     object-fit: fill;
+    height: 50px;
 }
 
 .comments-section .comments-body .comments .comment .details .details-header {
