@@ -675,24 +675,25 @@ nav.main-navbar .navbar-nav .nav-item .dropdown-toggle:hover {
     transform: translateX(0%);
 }
 
-.comments-section .comments-header .new-comment {
+.comments-section .new-comment {
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-.comments-section .comments-header .new-comment form textarea {
+.comments-section .new-comment form textarea {
     resize: none !important;
     width: 100%;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     height: 100px;
     border: none !important;
     padding: 0.5rem;
     outline: none !important;
 }
 
-.comments-section .comments-header .new-comment form button {
+.comments-section .new-comment form button {
     outline: none !important;
 }
 
-.comments-section .comments-header .new-comment form button.cancel-btn {
+.comments-section .new-comment form button.cancel-btn {
     background: none !important;
 }
 
