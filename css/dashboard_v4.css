@@ -714,8 +714,8 @@ nav.main-navbar .navbar-nav .nav-item .dropdown-toggle:hover {
 
 .comments-section .comments-body .comments .comment .owner-image {
     align-self: flex-start;
-    width: 70px;
-    height: 45px !important;
+    /* width: 70px;
+    height: 45px !important; */
     border-radius: 100%;
     display: flex;
     padding: 0.2rem;
@@ -725,10 +725,14 @@ nav.main-navbar .navbar-nav .nav-item .dropdown-toggle:hover {
 }
 
 .comments-section .comments-body .comments .comment .owner-image img {
-    width: 100%;
+    width: 50px;
     align-self: flex-start;
     height: 100%;
     object-fit: fill;
+}
+
+.comments-section .comments-body .comments .comment .details {
+    width: 100%;
 }
 
 .comments-section .comments-body .comments .comment .details .details-header {
